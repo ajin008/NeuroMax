@@ -2,7 +2,7 @@
 import { satoshi } from "@/lib/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll"; // Normal import
+import ClientProviders from "@/components/ClientProviders";
 
 export const metadata: Metadata = {
   title: "CBSE 100 Most-Asked Questions | Boost Board Exam Scores",
@@ -19,14 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${satoshi.variable} font-sans antialiased`}
+        className={`${satoshi.variable} font-sans antialiased scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800`}
         style={{
           overscrollBehavior: "none",
+          WebkitOverflowScrolling: "touch",
         }}
       >
-        <SmoothScroll>{children}</SmoothScroll>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );

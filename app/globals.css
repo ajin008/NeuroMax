@@ -1,29 +1,18 @@
 @import "tailwindcss";
 
-:root {
-  /* Core Dark Theme Colors */
-  --background: #000000; /* Pure black for the deep look */
-  --foreground: #f8f9fa; /* Off-white for better readability on black */
-
-  /* Primary Marketing Colors */
-  --primary-orange: #ff6600; /* Your "Register Now" button color */
-  --card-bg: #111111; /* Slightly lighter black for the Info Cards */
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
-  /* Linking Satoshi font variable from your layout */
+@theme {
+  /* v4 uses @theme block, 'inline' is optional if inside CSS */
   --font-sans: var(--font-satoshi);
-
-  /* Custom Colors for Tailwind classes (e.g., text-brand-orange) */
-  --color-brand-orange: var(--primary-orange);
-  --color-card: var(--card-bg);
+  --color-brand-orange: #ff6600;
+  --color-card: #111111;
   --color-royal-blue: #4169e1;
 }
 
-/* Force dark theme regardless of system settings */
+:root {
+  --background: #000000;
+  --foreground: #f8f9fa;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
@@ -31,31 +20,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Smooth scrolling for your "Jump to Payment" buttons */
 html {
   scroll-behavior: smooth;
-}
-
-/* Add these rules to your globals.css */
-html {
-  overflow-x: hidden;
-}
-
-body {
-  overflow-x: hidden;
-  min-height: 100vh;
-}
-
-/* Improve scrolling performance */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-/* Optional: Add smooth scroll behavior for browsers that support it */
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
 }
