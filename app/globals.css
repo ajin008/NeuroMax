@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  /* v4 uses @theme block, 'inline' is optional if inside CSS */
   --font-sans: var(--font-satoshi);
   --color-brand-orange: #ff6600;
   --color-card: #111111;
-  --color-royal-blue: #4169e1;
 }
 
 :root {
@@ -13,13 +11,33 @@
   --foreground: #f8f9fa;
 }
 
+/* Fix Hydration & Glitch issues */
+html {
+  /* This prevents the conflict with Lenis */
+  scroll-behavior: auto !important;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  /* Moved from layout.tsx style tag to here to fix hydration error */
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Custom Scrollbar Styling (V4 compatible) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #444444;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #666666;
 }
