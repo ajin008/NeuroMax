@@ -25,12 +25,12 @@ export default function Footer() {
                 href="mailto:support@cbse100.com"
                 className="text-brand-orange hover:underline transition-all"
               >
-                support@cbse100questions.com
+                neuromaxaccademy@gmail.com
               </a>
             </p>
           </div>
 
-          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.02] border border-white/5">
+          <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-white/2 border border-white/5">
             <Shield size={12} className="text-green-500/50" />
             <span className="text-[9px] font-black text-gray-500 uppercase tracking-widest">
               Secure payment via Razorpay
