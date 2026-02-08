@@ -77,41 +77,6 @@ export default function Home() {
         <Mentor />
         <TheValue />
 
-        {/* Conversion Section */}
-        <section
-          ref={ctaContainer}
-          className="w-full max-w-5xl mx-auto px-6 py-24 text-center"
-        >
-          {/* Ensure overflow is visible so the button shadow/animation isn't clipped */}
-          <div className="relative p-12 md:p-20 rounded-[40px] bg-[#0A0A0A] border border-white/10 overflow-visible">
-            <div className="cta-content relative z-10 flex flex-col items-center">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">
-                Ready to Crush your{" "}
-                <span className="text-brand-orange">Score Today.</span>
-              </h2>
-
-              <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl font-medium">
-                Get the exact list of 100 questions that will define your board
-                results.
-              </p>
-
-              {/* IMPORTANT: 
-          1. Added 'opacity-100' to force visibility if GSAP fails.
-          2. Removed 'transition-all' from the base class to avoid GSAP conflicts.
-      */}
-              <button className="group relative z-30 bg-brand-orange hover:bg-orange-500 text-black font-black text-xl rounded-2xl py-5 px-14 shadow-[0_20px_50px_rgba(255,102,0,0.3)] flex items-center gap-3 opacity-100">
-                JOIN BATCH • ₹{getPrice()}
-                <Zap size={20} fill="currentColor" />
-              </button>
-
-              <div className="mt-8 flex items-center gap-2 text-[10px] font-black text-gray-500 uppercase tracking-widest">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                Only 8 slots left
-              </div>
-            </div>
-          </div>
-        </section>
-
         <Footer />
       </div>
 

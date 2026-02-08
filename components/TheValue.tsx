@@ -92,46 +92,6 @@ export default function TheValue() {
             </div>
           ))}
         </div>
-
-        {/* High-Impact Investment Card */}
-        <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-b from-white/5 to-transparent border border-white/10 p-10 md:p-16">
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-royal-blue/10 blur-[100px] rounded-full" />
-
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-white text-center mb-12 flex items-center justify-center gap-3">
-              <Award className="text-brand-orange" /> Why this is a no-brainer
-            </h3>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-              <div className="text-center">
-                <div className="text-5xl font-black text-brand-orange mb-2">
-                  ₹99
-                </div>
-                <div className="text-gray-400 font-medium uppercase tracking-widest text-xs">
-                  Small Investment
-                </div>
-              </div>
-
-              <div className="flex justify-center md:rotate-0 rotate-90 opacity-20">
-                <ChevronRight size={48} strokeWidth={1} />
-              </div>
-
-              <div className="text-center">
-                <div className="text-5xl font-black text-white mb-2 flex items-center justify-center gap-2">
-                  <TrendingUp className="text-green-500 w-8 h-8" /> 20%
-                </div>
-                <div className="text-gray-400 font-medium uppercase tracking-widest text-xs">
-                  Potential Score Boost
-                </div>
-              </div>
-            </div>
-
-            <p className="text-center text-gray-500 mt-12 max-w-xl mx-auto italic">
-              "The most affordable way to ensure you don&apos;t walk into the
-              exam hall unprepared."
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
