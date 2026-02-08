@@ -1,9 +1,8 @@
 //cspell:disable
 import { satoshi } from "@/lib/fonts";
-import { rootMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
+import SmoothScroll from "@/components/SmoothScroll"; // Normal import
 
 export const metadata: Metadata = {
   title: "CBSE 100 Most-Asked Questions | Boost Board Exam Scores",
@@ -20,8 +19,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${satoshi.variable} font-sans antialiased`}>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${satoshi.variable} font-sans antialiased`}
+        style={{
+          overscrollBehavior: "none",
+        }}
+      >
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

@@ -1,42 +1,32 @@
+// components/SmoothScroll.tsx - FIXED VERSION
 "use client";
 
-import { ReactNode, useEffect, useRef } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
-  const lenisRef = useRef<Lenis | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
-    // 1. Initialize Lenis
+    // Only run on client side
+    if (typeof window === "undefined") return;
+
     const lenis = new Lenis({
-      duration: 1.5,
-      lerp: 0.1,
+      lerp: 0.05,
+      wheelMultiplier: 0.7,
       smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
     });
 
-    lenisRef.current = lenis;
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-    // 2. Sync with GSAP ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+    requestAnimationFrame(raf);
+    setIsInitialized(true);
 
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
-
-    gsap.ticker.lagSmoothing(0);
-
-    // 3. Cleanup on unmount
     return () => {
       lenis.destroy();
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
     };
   }, []);
 
