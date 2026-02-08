@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Dark Theme Colors */
+  --background: #000000; /* Pure black for the deep look */
+  --foreground: #f8f9fa; /* Off-white for better readability on black */
+
+  /* Primary Marketing Colors */
+  --primary-orange: #ff6600; /* Your "Register Now" button color */
+  --card-bg: #111111; /* Slightly lighter black for the Info Cards */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Linking Satoshi font variable from your layout */
+  --font-sans: var(--font-satoshi);
+
+  /* Custom Colors for Tailwind classes (e.g., text-brand-orange) */
+  --color-brand-orange: var(--primary-orange);
+  --color-card: var(--card-bg);
+  --color-royal-blue: #4169e1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Force dark theme regardless of system settings */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth scrolling for your "Jump to Payment" buttons */
+html {
+  scroll-behavior: smooth;
 }
