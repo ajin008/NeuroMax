@@ -11,33 +11,32 @@
   --foreground: #f8f9fa;
 }
 
-/* Fix Hydration & Glitch issues */
+/* 1. Native Smooth Scrolling */
 html {
-  /* This prevents the conflict with Lenis */
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth;
 }
 
+/* 2. Global Styles moved from Layout to avoid Hydration Error */
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   min-height: 100vh;
-  /* Moved from layout.tsx style tag to here to fix hydration error */
   overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Scrollbar Styling (V4 compatible) */
+/* 3. Simple Custom Scrollbar (Optional) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #111111;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #444444;
+  background: #333;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #666666;
+  background: var(--primary-orange);
 }
