@@ -1,19 +1,13 @@
+// components/hooks/useCTAAnimation.tsx
+"use client";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useEffect } from "react";
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
-
+// No ScrollTrigger registration here since we're not using it
 export const useCTAAnimation = () => {
   const ctaRef = useRef(null);
-
-  // Safeguard: Refresh ScrollTrigger when layout might change
-  useEffect(() => {
-    ScrollTrigger.refresh();
-  }, []);
 
   useGSAP(
     () => {
@@ -27,14 +21,7 @@ export const useCTAAnimation = () => {
         duration: 0.6,
         stagger: 0.1,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top 85%",
-          once: true, // Animation happens only once
-          onEnter: () => console.log("CTA Animation Started"), // Check your console!
-        },
-        // This ensures GSAP removes 'opacity' and 'transform' styles after finishing
-        clearProps: "all",
+        delay: 0.3,
       });
     },
     { scope: ctaRef }
